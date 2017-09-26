@@ -25,7 +25,11 @@
     "start-js": "NODE_PATH=src react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build": "yarn run build-css && react-scripts build",
-    "test": "NODE_PATH=src react-scripts test --env=jsdom",
+    "test:lint:js": "eslint --ext=js --ext=jsx .",
+    "test:lint:scss": "stylelint --config=.stylelintrc '**/*.scss'",
+    "test:lint": "run-s test:lint:**",
+    "test:unit": "NODE_PATH=src react-scripts test --env=jsdom",
+    "test": "run-s test:**",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
