@@ -5,22 +5,41 @@
   "dependencies": {
     "husky": "^0.14.3",
     "lint-staged": "^4.2.3",
+    "node-sass-chokidar": "^0.0.3",
+    "npm-run-all": "^4.1.1",
     "prettier": "^1.7.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-scripts": "1.0.13"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": [
+    "src/**/*.{js,jsx,json}": [
+      "eslint --fix",
+      "prettier --config .prettierrc --write",
+      "git add"
+    ],
+    "src/**/*.scss": [
+      "stylelint --config=.stylelintrc --fix",
       "prettier --config .prettierrc --write",
       "git add"
     ]
   },
   "scripts": {
     "precommit": "lint-staged",
-    "start": "NODE_PATH=src react-scripts start",
-    "build": "react-scripts build",
-    "test": "NODE_PATH=src react-scripts test --env=jsdom",
+    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch-css": "yarn run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "start-js": "NODE_PATH=src react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "yarn run build-css && react-scripts build",
+    "test:lint:js": "eslint --ext=js --ext=jsx .",
+    "test:lint:scss": "stylelint --config=.stylelintrc '**/*.scss'",
+    "test:lint": "run-s test:lint:**",
+    "test:unit": "NODE_PATH=src react-scripts test --env=jsdom",
+    "test": "run-s test:**",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "stylelint": "^8.1.1",
+    "stylelint-config-standard": "^17.0.0"
   }
 }
