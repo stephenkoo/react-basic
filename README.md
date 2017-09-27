@@ -3,25 +3,34 @@ A simple, opinionated React skeleton.
 
 ## Quick Start
 
-You must have Node version ≥6 and [Yarn](https://yarnpkg.com/en/docs/install) to run this app. Follow the [instructions here](#having-problems-starting?) to install them.
+You must have Node version ≥6 and [Yarn](https://yarnpkg.com/en/docs/install) to run this app. Follow the [instructions here](#having-problems-starting) to install them.
 
-1. `nvm use`
-1. `yarn`
-1. `yarn start`
-1. Open http://localhost:3000/ to see the app
+```
+nvm use
+yarn
+yarn start
+```
+
+Open http://localhost:3000/ to see the app.
 
 ### Having Problems Starting?
 
 If you’re having problems starting the app, try installing the required tools:
 
-1. `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash` - Installs [nvm](https://github.com/creationix/nvm#install-script), which is used to install Node.
-1. `nvm install` - Installs the Node version found in this app’s `.nvmrc`
-1. `nvm use` - Uses that Node version
-1. `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` - Installs [Homebrew](https://brew.sh/), which is used to install Yarn.
-1. `brew install yarn` - Installs yarn
-1. `yarn`
-1. `yarn start`
-1. If `yarn start` still fails, follow any instructions in your CLI
+Install [nvm](https://github.com/creationix/nvm#install-script) and install the Node version required by this app’s `.nvmrc`
+```
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
+nvm install
+```
+
+Install [Homebrew](https://brew.sh/) and Yarn
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install yarn
+```
+
+Try [starting the app again](#quick-start).
+If this still fails, follow the instructions in your CLI.
 
 ## Running Tests, Deployment, and Other Tasks
 
