@@ -3,8 +3,27 @@ A simple, opinionated React skeleton.
 
 ## Quick Start
 
+You must have Node version ≥6 and [Yarn](https://yarnpkg.com/en/docs/install) to run this app. Follow the [instructions here](#having-problems-starting?) to install them.
+
+1. `nvm use`
+1. `yarn`
 1. `yarn start`
 1. Open http://localhost:3000/ to see the app
+
+### Having Problems Starting?
+
+If you’re having problems starting the app, try installing the required tools:
+
+1. `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash` - Installs [nvm](https://github.com/creationix/nvm#install-script), which is used to install Node.
+1. `nvm install` - Installs the Node version found in this app’s `.nvmrc`
+1. `nvm use` - Uses that Node version
+1. `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` - Installs [Homebrew](https://brew.sh/), which is used to install Yarn.
+1. `brew install yarn` - Installs yarn
+1. `yarn`
+1. `yarn start`
+1. If `yarn start` still fails, follow any instructions in your CLI
+
+## Running Tests, Deployment, and Other Tasks
 
 | Other common commands   | What they do                                          |
 | ----------------------- | ----------------------------------------------------- |
@@ -20,16 +39,6 @@ A simple, opinionated React skeleton.
 | `yarn lint:prettier`    | Formats js, jsx, json, and scss with Prettier         |
 | `yarn lint:styles`      | Formats scss with stylelint                           |
 | `yarn eject`            | [Ejects Create React App](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup) (do this only if you absolutely must)   |
-
-### Having Problems Starting?
-
-If you’re having problems starting the app, try this:
-
-1. `nvm install`       - Installs the Node version found in this app’s `.nvmrc`
-1. `nvm use`           - Uses that Node version
-1. `brew install yarn` - [Installs yarn](https://yarnpkg.com/en/docs/install)
-1. `yarn`              - Installs yarn packages
-1. `yarn start`        - Runs the `start` script
 
 ### What’s Inside
 
@@ -47,7 +56,7 @@ If you’re having problems starting the app, try this:
 
 ### Directory Structure
 
-Follow this folder structure: \*
+Follow this folder structure:
 
 ```
 this-app
@@ -75,7 +84,7 @@ this-app
     └── registerServiceWorker.js
 ```
 
-\* This structure is based on [this article](https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092) and [the acommpanying example repo](https://github.com/wix/react-dataflow-example).
+*Structure based on [Tal Kol’s Redux Workflow article](https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092) and [the acommpanying example repo](https://github.com/wix/react-dataflow-example).*
 
 - **`/src/components` - [Presentational components\**](http://redux.js.org/docs/basics/UsageWithReact.html#presentational-and-container-components)**
   - Concerned with how things look (markup, styles)
@@ -90,11 +99,13 @@ this-app
   - Examples: *UserPage*, *FollowersSidebar*, *StoryContainer*, *FollowedUserList*
 - **`/src/services` - Abstraction façades for external API (backend servers)**
 - **`/src/store` - Redux-specific code, including all business-logic**
+  - **`/src/store/{domain-name}/reducers.js`** - Reducers as default exports and selectors as named exports
+  - **`/src/store/{domain-name}/actions.js`** - Action creators and action handlers (thunks or sagas)
 - **`/src/styles` - Generic (non-component-specific) styles**
 
 #### Style folder
 
-In `/src/styles`, follow this folder structure:\***
+In `/src/styles`, follow this folder structure:
 
 ```
 this-app
@@ -123,7 +134,7 @@ this-app
         └── _{partial-name}.scss
         └── main.scss
 ```
-\*** Inspired by [this Sass structure](http://thesassway.com/beginner/how-to-structure-a-sass-project).
+*Structure based on [John W. Long’s article](http://thesassway.com/beginner/how-to-structure-a-sass-project).*
 
 - **`_{partial-name}.scss`**  - All stylesheets (except `main.scss`) should be partials
 - **`_main.scss`**  - Imports all partials in `src/styles`. Contains no styles. This is the only stylesheet in `src/styles` that generates a CSS file.
@@ -132,14 +143,24 @@ this-app
 - **`{/styles/utils}`** - Contains Sass mixins and functions. It should not output CSS here, but can output CSS in Sass stylesheets where the utils are used.
 - **`{/styles/vendors}`** - Imports third-party stylesheets and contains modifications to those third-party stylesheets
 
+### Coding Rules
+
+1. Containers must always access state through selectors
+1. Containers must not have any logic except dispatching actions
+1. View logic should be extracted from containers into presentational components
+1. Business logic must be in `src/store` action handlers (thunks), selectors and reducers
+1. Services must be stateless
+
+*From [Tal Kol’s Redux Workflow article](https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092).*
+
 ### Planned Improvements
 
-- Implement [Immutable.js](https://facebook.github.io/immutable-js/)
-- Implement [Flow](https://flow.org/)
 - Implement [reselect](https://github.com/reactjs/reselect)
 - Implement [normalizr](https://github.com/paularmstrong/normalizr)
-- Implement [lodash](https://lodash.com) or [Underscore.js](http://underscorejs.org/)
+- Implement [Immutable.js](https://facebook.github.io/immutable-js/)
 - Implement [enzyme](https://github.com/airbnb/enzyme)
+- Implement [Flow](https://flow.org/)
+- Implement [lodash](https://lodash.com) or [Underscore.js](http://underscorejs.org/)
 - Implement [Storybook](https://storybook.js.org/) or [Styleguidist](https://react-styleguidist.js.org/)
 - Create and add custom SCSS style utilities as a package dependency
 
