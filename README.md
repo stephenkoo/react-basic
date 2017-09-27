@@ -96,15 +96,16 @@ this-app
 *Structure based on [Tal Kol’s Redux Workflow article](https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092) and [the acommpanying example repo](https://github.com/wix/react-dataflow-example).*
 
 - **`/src/components` - [Presentational components\**](http://redux.js.org/docs/basics/UsageWithReact.html#presentational-and-container-components)**
+- **`/src/components` - [Presentational components](http://redux.js.org/docs/basics/UsageWithReact.html#presentational-and-container-components)**
   - Concerned with how things look (markup, styles)
   - Written as [functional components](https://javascriptplayground.com/blog/2017/03/functional-stateless-components-react/)
   - [Has no dependencies](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) on the rest of the app
   - Examples: *Page*, *Sidebar*, *Story*, *UserInfo*, *List*
-- **`/src/containers` - [Container components\**](http://redux.js.org/docs/basics/UsageWithReact.html#presentational-and-container-components)**
+- **`/src/containers` - [Container components](http://redux.js.org/docs/basics/UsageWithReact.html#presentational-and-container-components)**
   - Concerned with how things work (no styles, rarely contains DOM markup other than wrapping divs)
   - Provides data and behaviour to presentational or other container components
   - Written as [functional components](https://javascriptplayground.com/blog/2017/03/functional-stateless-components-react/)
-  - Usually [made using higher order components]((https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)) like Redux’s `connect()`
+  - Usually [made using higher order components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) like Redux’s `connect()`
   - Examples: *UserPage*, *FollowersSidebar*, *StoryContainer*, *FollowedUserList*
 - **`/src/services` - Abstraction façades for external API (backend servers)**
 - **`/src/store` - Redux-specific code, including all business-logic**
