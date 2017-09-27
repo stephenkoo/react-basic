@@ -95,7 +95,6 @@ this-app
 
 *Structure based on [Tal Kol’s Redux Workflow article](https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092) and [the acommpanying example repo](https://github.com/wix/react-dataflow-example).*
 
-- **`/src/components` - [Presentational components\**](http://redux.js.org/docs/basics/UsageWithReact.html#presentational-and-container-components)**
 - **`/src/components` - [Presentational components](http://redux.js.org/docs/basics/UsageWithReact.html#presentational-and-container-components)**
   - Concerned with how things look (markup, styles)
   - Written as [functional components](https://javascriptplayground.com/blog/2017/03/functional-stateless-components-react/)
