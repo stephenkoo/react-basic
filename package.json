@@ -16,6 +16,10 @@
     "react-scripts": "1.0.13",
     "redux": "^3.7.2"
   },
+  "devDependencies": {
+    "stylelint": "^8.1.1",
+    "stylelint-config-standard": "^17.0.0"
+  },
   "lint-staged": {
     "src/**/*.{js,jsx,json}": [
       "eslint --fix",
@@ -29,21 +33,20 @@
     ]
   },
   "scripts": {
-    "precommit": "lint-staged",
-    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
-    "watch-css": "yarn run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
-    "start-js": "NODE_PATH=src react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
-    "build": "yarn run build-css && react-scripts build",
-    "test:lint:js": "eslint --ext=js --ext=jsx .",
-    "test:lint:scss": "stylelint --config=.stylelintrc '**/*.scss'",
-    "test:lint": "run-s test:lint:**",
-    "test:unit": "NODE_PATH=src react-scripts test --env=jsdom",
+    "start": "npm-run-all -p watch:css start:js",
+    "start:js": "NODE_PATH=src react-scripts start",
+    "build": "yarn build:css && react-scripts build",
+    "build:css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch:css": "yarn run build:css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "test": "run-s test:**",
+    "test:lint": "run-s test:lint:**",
+    "test:lint:js": "eslint --ext=js --ext=jsx .",
+    "test:lint:styles": "stylelint --config=.stylelintrc 'src/**/*.scss'",
+    "test:unit": "NODE_PATH=src react-scripts test --env=jsdom",
+    "lint": "run-s lint:**",
+    "lint:prettier": "./node_modules/.bin/prettier --config=.prettierrc --write 'src/**/*.{js,jsx,json,scss}'",
+    "lint:styles": "./node_modules/.bin/stylelint --config=.stylelintrc --fix 'src/**/*.scss'",
+    "precommit": "lint-staged",
     "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "stylelint": "^8.1.1",
-    "stylelint-config-standard": "^17.0.0"
   }
 }
