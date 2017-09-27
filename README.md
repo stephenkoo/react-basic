@@ -11,7 +11,7 @@ yarn
 yarn start
 ```
 
-Open http://localhost:3000/ to see the app
+Open http://localhost:3000/ to see the app.
 
 ### Having Problems Starting?
 
