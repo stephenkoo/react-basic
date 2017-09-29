@@ -47,7 +47,7 @@ More testing information can be found in [Create React App’s User Guide](https
 
 ## Deployment
 
-`yarn build` builds a minified production build
+`yarn build` builds a minified production build.
 
 More deployment information info can be found in [Create React App’s User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment).
 
