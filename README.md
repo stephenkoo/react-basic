@@ -1,69 +1,79 @@
-# React Base
-A simple, opinionated React skeleton.
+# CRAB: Create React App Boost [![Build Status](https://travis-ci.org/stephenkoo/crab.svg?branch=master)](https://travis-ci.org/stephenkoo/crab) [![Coverage Status](https://coveralls.io/repos/github/stephenkoo/crab/badge.svg?branch=master)](https://coveralls.io/github/stephenkoo/crab?branch=master) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+> A simple, opinionated React starter boilerplate
+
+CRAB adds [commonly used extras](#whats-inside) like React Router and Redux to [Create React App]((https://github.com/facebookincubator/create-react-app) so you can start building apps.
 
 ## Quick Start
 
-You must have Node version ≥6 and [Yarn](https://yarnpkg.com/en/docs/install) to run this app. Follow the [instructions here](#having-problems-starting) to install them.
+You need the latest Node version and [Yarn](https://yarnpkg.com/en/docs/install) to run this app. [Here’s how to install them](#having-problems-starting).
 
 ```
-nvm use
+git clone https://github.com/stephenkoo/crab.git
+cd crab
 yarn
 yarn start
 ```
-
 Open http://localhost:3000/ to see the app.
+
+You can just run `yarn start` to start the app after the first time.
 
 ### Having Problems Starting?
 
-If you’re having problems starting the app, try installing the required tools:
-
-Install [nvm](https://github.com/creationix/nvm#install-script) and install the Node version required by this app’s `.nvmrc`
+Having problems starting the app? Install the right Node version and Yarn then try again:
 ```
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
 nvm install
-```
-
-Install [Homebrew](https://brew.sh/) and Yarn
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+nvm use
 brew install yarn
 ```
 
-Try [starting the app again](#quick-start).
-If this still fails, follow the instructions in your CLI.
+*If this doesn’t work, install [nvm](https://github.com/creationix/nvm#install-script) and [Homebrew](https://brew.sh/) and repeat the instructions.*
 
-## Running Tests, Deployment, and Other Tasks
+## Running Tests
 
-| Other common commands   | What they do                                          |
+`yarn test` runs all lint and unit tests.
+[Jest](http://facebook.github.io/jest) is used for unit tests, [ESLint](http://eslint.org/) for JavaScript linting, and [Stylelint](https://stylelint.io/) for SCSS linting.
+
+| Other test scripts      |                            |
+| ----------------------- | -------------------------- |
+| `yarn test:lint`        | Runs lint tests            |
+| `yarn test:lint:js`     | Runs JavaScript lint tests |
+| `yarn test:lint:styles` | Runs SCSS lint tests       |
+| `yarn test:unit`        | Runs unit tests            |
+
+Useful testing info can be found in [Create React App’s User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests).
+
+## Deployment
+
+`yarn build` builds a minified production build
+
+More deployment info can be found in [Create React App’s User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment).
+
+## Other Tasks
+
+| Scripts                 |                                                       |
 | ----------------------- | ----------------------------------------------------- |
-| `yarn build`            | Builds a minified bundle for production               |
 | `yarn build:css`        | Compiles CSS files (done automatically on yarn start) |
 | `yarn watch:css`        | Compiles CSS files and watches for changes            |
-| `yarn test`             | Runs lint and unit tests                              |
-| `yarn test:lint`        | Runs lint tests                                       |
-| `yarn test:lint:js`     | Runs JavaScript lint tests                            |
-| `yarn test:lint:styles` | Runs SCSS lint tests                                  |
-| `yarn test:unit`        | Runs unit tests                                       |
 | `yarn lint`             | Formats entire project using Prettier and stylelint   |
 | `yarn lint:prettier`    | Formats js, jsx, json, and scss with Prettier         |
 | `yarn lint:styles`      | Formats scss with stylelint                           |
 | `yarn eject`            | [Ejects Create React App](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup) (do this only if you absolutely must)   |
 
-### What’s Inside
+## What’s Inside
 
 - [Prettier](https://prettier.io/) - Automatically formats your js, jsx, json and scss before you commit
-- [SCSS (Sass)](http://sass-lang.com/) - CSS preprocessor
-- [Stylelint](https://stylelint.io/) - Lints your SCSS
+- [SCSS (Sass)](http://sass-lang.com/)
+- [Stylelint](https://stylelint.io/)
 - [Redux](http://redux.js.org/)
 - [React Router](https://reacttraining.com/react-router/)
-- [Create React App](https://github.com/facebookincubator/create-react-app) goodies like
+- [Create React App](https://github.com/facebookincubator/create-react-app) goodies like:
     - [webpack](https://webpack.js.org/)
     - [Babel with ES6 and Facebook extensions](http://babeljs.io/)
     - [Autoprefixer](https://github.com/postcss/autoprefixer)
     - [ESLint](http://eslint.org/)
     - [Jest](http://facebook.github.io/jest)
 
-### Directory Structure
+## Directory Structure
 
 Follow this folder structure:
 
@@ -112,7 +122,7 @@ this-app
   - **`/src/store/{domain-name}/actions.js`** - Action creators and action handlers (thunks or sagas)
 - **`/src/styles` - Generic (non-component-specific) styles**
 
-#### Style folder
+### Style folder
 
 In `/src/styles`, follow this folder structure:
 
@@ -152,7 +162,7 @@ this-app
 - **`{/styles/utils}`** - Contains Sass mixins and functions. It should not output CSS here, but can output CSS in Sass stylesheets where the utils are used.
 - **`{/styles/vendors}`** - Imports third-party stylesheets and contains modifications to those third-party stylesheets
 
-### Coding Rules
+### Good coding principles
 
 1. Containers must always access state through selectors
 1. Containers must not have any logic except dispatching actions
@@ -162,7 +172,7 @@ this-app
 
 *From [Tal Kol’s Redux Workflow article](https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092).*
 
-### Planned Improvements
+## Planned Improvements
 
 - Implement [reselect](https://github.com/reactjs/reselect)
 - Implement [normalizr](https://github.com/paularmstrong/normalizr)
@@ -174,6 +184,5 @@ this-app
 - Create and add custom SCSS style utilities as a package dependency
 
 ## License
-[MIT](https://opensource.org/licenses/MIT)
 
-
+[MIT](https://opensource.org/licenses/MIT) © [Stephen Koo](https://github.com/stephenkoo)
