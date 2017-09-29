@@ -1,7 +1,8 @@
-# CRAB: Create React App Boost [![Build Status](https://travis-ci.org/stephenkoo/crab.svg?branch=master)](https://travis-ci.org/stephenkoo/crab) [![Coverage Status](https://coveralls.io/repos/github/stephenkoo/crab/badge.svg?branch=master)](https://coveralls.io/github/stephenkoo/crab?branch=master) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+# CRAB: Create React App Boost
 > A simple, opinionated React starter boilerplate
+[![Build Status](https://travis-ci.org/stephenkoo/crab.svg?branch=master)](https://travis-ci.org/stephenkoo/crab) [![Coverage Status](https://coveralls.io/repos/github/stephenkoo/crab/badge.svg?branch=master)](https://coveralls.io/github/stephenkoo/crab?branch=master) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-CRAB adds [commonly used extras](#whats-inside) like React Router and Redux to [Create React App]((https://github.com/facebookincubator/create-react-app) so you can start building apps.
+CRAB adds [commonly used extras](#whats-inside) like React Router and Redux to [Create React App](https://github.com/facebookincubator/create-react-app) so you can start building apps.
 
 ## Quick Start
 
@@ -40,13 +41,13 @@ brew install yarn
 | `yarn test:lint:styles` | Runs SCSS lint tests       |
 | `yarn test:unit`        | Runs unit tests            |
 
-Useful testing info can be found in [Create React App’s User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests).
+More testing information can be found in [Create React App’s User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests).
 
 ## Deployment
 
 `yarn build` builds a minified production build
 
-More deployment info can be found in [Create React App’s User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment).
+More deployment information info can be found in [Create React App’s User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment).
 
 ## Other Tasks
 
