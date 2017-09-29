@@ -1,6 +1,8 @@
 # CRAB: Create React App Boost
-> A simple, opinionated React starter boilerplate
+
 [![Build Status](https://travis-ci.org/stephenkoo/crab.svg?branch=master)](https://travis-ci.org/stephenkoo/crab) [![Coverage Status](https://coveralls.io/repos/github/stephenkoo/crab/badge.svg?branch=master)](https://coveralls.io/github/stephenkoo/crab?branch=master) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
+> A simple, opinionated React starter boilerplate
 
 CRAB adds [commonly used extras](#whats-inside) like React Router and Redux to [Create React App](https://github.com/facebookincubator/create-react-app) so you can start building apps.
 
