@@ -94,10 +94,11 @@ this-app
     │       └── index.test.js
     └── services
     └── store
-    │   └── reducers.js
     │   └── {domain-name}
-    │       └── reducer.js
-    │       └── actions.js
+    │   │   └── reducer.js
+    │   │   └── actions.js
+    │   └── reducers.js
+    │   └── store.js
     └── styles
     └── App.scss
     └── App.js
@@ -123,6 +124,8 @@ this-app
 - **`/src/store` - Redux-specific code, including all business-logic**
   - **`/src/store/{domain-name}/reducers.js`** - Reducers as default exports and selectors as named exports
   - **`/src/store/{domain-name}/actions.js`** - Action creators and action handlers (thunks or sagas)
+  - **`/src/store/reducers.js`** - Combines all reducers
+  - **`/src/store/store.js`** - Creates and configures the store
 - **`/src/styles` - Generic (non-component-specific) styles**
 
 ### Style folder
